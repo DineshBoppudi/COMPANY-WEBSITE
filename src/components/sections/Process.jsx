@@ -8,7 +8,8 @@ export default function Process() {
   ];
 
   return (
-    <section className="py-32 bg-white">
+    <section id="process" className="py-32">
+        
 
       <div className="max-w-7xl mx-auto px-8">
 

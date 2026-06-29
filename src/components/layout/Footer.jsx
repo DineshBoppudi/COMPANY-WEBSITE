@@ -1,6 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer id="contact"className="bg-black text-white">
+      
 
       <div className="max-w-7xl mx-auto px-8 py-20">
 
@@ -78,10 +79,6 @@ export default function Footer() {
 
           <p className="text-gray-500">
             © 2026 DataVision. All rights reserved.
-          </p>
-
-          <p className="text-gray-500">
-            Designed with React & Tailwind
           </p>
 
         </div>

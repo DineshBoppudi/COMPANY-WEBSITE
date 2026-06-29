@@ -52,44 +52,60 @@ export default function Navbar() {
 
           </div>
 
-          <nav className="hidden md:block">
+         <nav className="hidden md:block">
+  <ul className="flex gap-10 text-gray-600">
 
-            <ul className="flex gap-10 text-gray-600">
+    <li>
+      <a
+        href="#services"
+        className="hover:text-black transition"
+      >
+        Services
+      </a>
+    </li>
 
-              <li className="hover:text-black cursor-pointer">
-                Services
-              </li>
+    <li>
+      <a
+        href="#work"
+        className="hover:text-black transition"
+      >
+        Work
+      </a>
+    </li>
 
-              <li className="hover:text-black cursor-pointer">
-                Work
-              </li>
+    <li>
+      <a
+        href="#process"
+        className="hover:text-black transition"
+      >
+        Process
+      </a>
+    </li>
 
-              <li className="hover:text-black cursor-pointer">
-                Process
-              </li>
+    <li>
+      <a
+        href="#contact"
+        className="hover:text-black transition"
+      >
+        Contact
+      </a>
+    </li>
 
-              <li className="hover:text-black cursor-pointer">
-                Contact
-              </li>
+  </ul>
+</nav>
 
-            </ul>
-
-          </nav>
-
-          <button
-            className="
-            bg-black
-            text-white
-            px-6
-            py-3
-            rounded-xl
-            hover:bg-gray-900
-            transition
-            "
-          >
-            Let's Talk
-          </button>
-
+         <a
+  href="#contact"
+  className="
+  bg-black
+  text-white
+  px-6
+  py-3
+  rounded-xl
+  "
+>
+  Let's Talk
+</a>
         </div>
 
       </div>

@@ -13,4 +13,5 @@ body {
 
 section {
   position: relative;
+   scroll-margin-top: 120px;
 }

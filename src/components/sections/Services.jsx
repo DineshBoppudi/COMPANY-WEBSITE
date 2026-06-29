@@ -3,7 +3,7 @@ import { services } from "../../data/services";
 
 export default function Services() {
   return (
-    <section className="py-32">
+    <section id="services" className="py-32">
 
       <div className="max-w-7xl mx-auto px-8">
 
