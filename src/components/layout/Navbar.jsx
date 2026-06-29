@@ -1,67 +1,99 @@
-export default function ServiceCard({
-  title,
-  description,
-  icon: Icon,
-}) {
+export default function Navbar() {
   return (
-    <div
-      className="
-      group
-      bg-white
-      rounded-[28px]
-      p-8
-      border
-      border-gray-100
-      hover:shadow-xl
-      hover:-translate-y-2
-      transition-all
-      duration-300
-      "
-    >
-      <div
-        className="
-        w-14
-        h-14
-        rounded-2xl
-        bg-gradient-to-r
-        from-blue-50
-        to-indigo-50
-        flex
-        items-center
-        justify-center
-        "
-      >
-        <Icon
-          size={28}
-          className="text-blue-600"
-        />
+    <header className="fixed top-5 left-0 right-0 z-50">
+
+      <div className="max-w-7xl mx-auto px-8">
+
+        <div
+          className="
+          bg-white/50
+          backdrop-blur-2xl
+          rounded-2xl
+          px-8
+          h-20
+          flex
+          items-center
+          justify-between
+          shadow-lg
+          "
+        >
+
+          <div className="flex items-center gap-3">
+
+            <div
+              className="
+              w-10
+              h-10
+              rounded-xl
+              bg-gradient-to-r
+              from-blue-600
+              to-indigo-600
+              flex
+              items-center
+              justify-center
+              text-white
+              font-bold
+              "
+            >
+              D
+            </div>
+
+            <div>
+
+              <h1 className="font-bold text-xl">
+                DataVision
+              </h1>
+
+              <p className="text-xs text-gray-500">
+                AI Studio
+              </p>
+
+            </div>
+
+          </div>
+
+          <nav className="hidden md:block">
+
+            <ul className="flex gap-10 text-gray-600">
+
+              <li className="hover:text-black cursor-pointer">
+                Services
+              </li>
+
+              <li className="hover:text-black cursor-pointer">
+                Work
+              </li>
+
+              <li className="hover:text-black cursor-pointer">
+                Process
+              </li>
+
+              <li className="hover:text-black cursor-pointer">
+                Contact
+              </li>
+
+            </ul>
+
+          </nav>
+
+          <button
+            className="
+            bg-black
+            text-white
+            px-6
+            py-3
+            rounded-xl
+            hover:bg-gray-900
+            transition
+            "
+          >
+            Let's Talk
+          </button>
+
+        </div>
+
       </div>
 
-      <h3 className="text-2xl font-bold mt-6">
-        {title}
-      </h3>
-
-      <p
-        className="
-        text-gray-500
-        mt-4
-        leading-relaxed
-        "
-      >
-        {description}
-      </p>
-
-      <button
-        className="
-        mt-6
-        text-blue-600
-        font-semibold
-        group-hover:translate-x-2
-        transition-transform
-        "
-      >
-        Learn More →
-      </button>
-    </div>
+    </header>
   );
 }

@@ -1,52 +1,37 @@
 export default function Process() {
+
+  const steps = [
+    "Discovery",
+    "Strategy",
+    "Design",
+    "Development"
+  ];
+
   return (
-    <section id="process" className="py-32">
+    <section className="py-32 bg-white">
 
       <div className="max-w-7xl mx-auto px-8">
 
-        <div className="text-center">
+        <h2 className="text-5xl font-bold">
+          Our Process
+        </h2>
 
-          <p className="text-blue-600 font-medium">
-            OUR PROCESS
-          </p>
+        <div className="grid md:grid-cols-4 gap-8 mt-16">
 
-          <h2 className="text-5xl font-bold mt-4">
-            How We Work
-          </h2>
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="p-8 rounded-3xl bg-gray-50"
+            >
+              <div className="text-5xl font-bold text-gray-300">
+                0{index + 1}
+              </div>
 
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 mt-20">
-
-          <div className="bg-white p-8 rounded-3xl">
-            <h3 className="text-2xl font-bold">
-              Discover
-            </h3>
-
-            <p className="mt-4 text-gray-500">
-              Understand business goals and requirements.
-            </p>
-          </div>
-
-          <div className="bg-white p-8 rounded-3xl">
-            <h3 className="text-2xl font-bold">
-              Build
-            </h3>
-
-            <p className="mt-4 text-gray-500">
-              Design and develop scalable solutions.
-            </p>
-          </div>
-
-          <div className="bg-white p-8 rounded-3xl">
-            <h3 className="text-2xl font-bold">
-              Launch
-            </h3>
-
-            <p className="mt-4 text-gray-500">
-              Deploy and continuously improve products.
-            </p>
-          </div>
+              <h3 className="text-xl font-semibold mt-4">
+                {step}
+              </h3>
+            </div>
+          ))}
 
         </div>
 
@@ -54,4 +39,4 @@ export default function Process() {
 
     </section>
   );
-}   
+}

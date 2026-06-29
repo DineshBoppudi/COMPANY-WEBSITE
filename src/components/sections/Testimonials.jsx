@@ -23,15 +23,11 @@ export default function Testimonials() {
           {testimonials.map((item, index) => (
             <div
               key={index}
-           className="
-bg-white
-p-8
-rounded-[32px]
-border
-border-gray-100
-hover:shadow-xl
-transition
-"
+              className="
+              bg-gray-50
+              p-8
+              rounded-3xl
+            "
             >
               <p className="text-lg">
                 "{item.review}"

@@ -12,25 +12,23 @@ import Footer from "../components/layout/Footer";
 export default function Home() {
   return (
     <>
-      <Navbar />
+  <Navbar />
+  <Hero />
 
-      <Hero />
+  <div className="bg-white">
+    <TrustedCompanies />
+  </div>
 
-      <TrustedCompanies />
+  <Services />
 
-      <Services />
+  <div className="bg-white">
+    <Portfolio />
+  </div>
 
-      <Portfolio />
-
-      <Process />
-
-      <Stats />
-
-      <Testimonials />
-
-      <CTA />
-
-      <Footer />
-    </>
+  <Stats />
+  <Testimonials />
+  <CTA />
+  <Footer />
+</>
   );
 }

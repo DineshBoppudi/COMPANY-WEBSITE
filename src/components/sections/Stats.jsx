@@ -31,7 +31,7 @@ export default function Stats() {
           {stats.map((stat, index) => (
             <div
               key={index}
-       className="
+     className="
 bg-white
 rounded-[30px]
 p-10

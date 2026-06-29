@@ -80,6 +80,10 @@ export default function Footer() {
             © 2026 DataVision. All rights reserved.
           </p>
 
+          <p className="text-gray-500">
+            Designed with React & Tailwind
+          </p>
+
         </div>
 
       </div>
