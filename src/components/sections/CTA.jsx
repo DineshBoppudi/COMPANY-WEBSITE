@@ -1,11 +1,13 @@
 import { useState } from "react";
 import ScheduleCallModal from "../ui/ScheduleCallModal";
+import SuccessMessage from "../ui/SuccessMessage";
+
 export default function CTA() {
   const [showModal, setShowModal] = useState(false);
+  const [successData, setSuccessData] = useState(null);
+
   return (
-    
     <section className="py-32">
-      
 
       <div className="max-w-6xl mx-auto px-8">
 
@@ -50,31 +52,45 @@ export default function CTA() {
             >
               Start a Project
             </button>
-            
 
             <button
-  onClick={() => setShowModal(true)}
-  className="
-  bg-white
-  text-black
-  px-8
-  py-4
-  rounded-full
-  font-semibold
-  "
->
-  Schedule a Call
-</button>
+              onClick={() => setShowModal(true)}
+              className="
+              bg-white
+              text-black
+              px-8
+              py-4
+              rounded-full
+              font-semibold
+              "
+            >
+              Schedule a Call
+            </button>
 
-<ScheduleCallModal
-  isOpen={showModal}
-  onClose={() => setShowModal(false)}
-/>
           </div>
 
         </div>
 
       </div>
+
+      <ScheduleCallModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        onSuccess={(data) => {
+          setSuccessData(data);
+
+          setTimeout(() => {
+            setSuccessData(null);
+          }, 40000);
+        }}
+      />
+
+      {successData && (
+        <SuccessMessage
+          name={successData.name}
+          email={successData.email}
+        />
+      )}
 
     </section>
   );

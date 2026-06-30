@@ -1,45 +1,106 @@
+import { useState } from "react";
+
 export default function ScheduleCallModal({
   isOpen,
   onClose,
+  onSuccess,
 }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    date: "",
+    time: "",
+    message: "",
+  });
+
   if (!isOpen) return null;
 
-  const handleSubmit = () => {
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    onClose();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    alert(
-      "Thank you! Your request has been submitted successfully."
-    );
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/book-call",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      console.log(data);
+
+      onClose();
+
+      onSuccess({
+        name: formData.name,
+        email: formData.email,
+      });
+
+    } catch (error) {
+      console.error(error);
+
+      alert(
+        "Something went wrong. Please try again."
+      );
+    }
   };
 
   return (
     <div
       className="
       fixed inset-0
-      bg-black/50
+      bg-black/60
+      backdrop-blur-sm
       flex items-center justify-center
       z-50
+      p-4
       "
     >
       <div
         className="
-        bg-blue-300
+        bg-white
         w-full
-        max-w-md
-        rounded-3xl
+        max-w-lg
+        rounded-[32px]
         p-8
+        shadow-2xl
+        border
+        border-gray-100
         "
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-start">
 
-          <h2 className="text-2xl font-bold">
-            Schedule a Call
-          </h2>
+          <div>
+            <h2 className="text-3xl font-bold text-black">
+              Schedule a Call
+            </h2>
+
+            <p className="text-gray-500 mt-2">
+              Tell us about your project and we'll
+              get back to you shortly.
+            </p>
+          </div>
 
           <button
             onClick={onClose}
-            className="text-xl"
+            className="
+            text-gray-500
+            hover:text-black
+            text-xl
+            "
           >
             ✕
           </button>
@@ -48,72 +109,146 @@ export default function ScheduleCallModal({
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 mt-6"
+          className="space-y-4 mt-8"
         >
 
           <input
             type="text"
-            placeholder="Your Name"
+            name="name"
+            placeholder="Your Name *"
             required
+            value={formData.name}
+            onChange={handleChange}
             className="
             w-full
+            bg-gray-50
             border
-            p-3
-            rounded-xl
+            border-gray-200
+            p-4
+            rounded-2xl
+            text-black
+            placeholder:text-gray-400
+            outline-none
+            focus:border-blue-500
+            focus:ring-4
+            focus:ring-blue-100
+            transition
             "
           />
 
           <input
             type="email"
-            placeholder="Email Address"
+            name="email"
+            placeholder="Email Address *"
             required
+            value={formData.email}
+            onChange={handleChange}
             className="
             w-full
+            bg-gray-50
             border
-            p-3
-            rounded-xl
+            border-gray-200
+            p-4
+            rounded-2xl
+            text-black
+            placeholder:text-gray-400
+            outline-none
+            focus:border-blue-500
+            focus:ring-4
+            focus:ring-blue-100
+            transition
             "
           />
 
           <input
             type="tel"
+            name="phone"
             placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
             className="
             w-full
+            bg-gray-50
             border
-            p-3
-            rounded-xl
+            border-gray-200
+            p-4
+            rounded-2xl
+            text-black
+            placeholder:text-gray-400
+            outline-none
+            focus:border-blue-500
+            focus:ring-4
+            focus:ring-blue-100
+            transition
             "
           />
 
-          <input
-            type="date"
-            className="
-            w-full
-            border
-            p-3
-            rounded-xl
-            "
-          />
+          <div className="grid grid-cols-2 gap-4">
 
-          <input
-            type="time"
-            className="
-            w-full
-            border
-            p-3
-            rounded-xl
-            "
-          />
+            <input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              className="
+              w-full
+              bg-gray-50
+              border
+              border-gray-200
+              p-4
+              rounded-2xl
+              text-black
+              outline-none
+              focus:border-blue-500
+              focus:ring-4
+              focus:ring-blue-100
+              transition
+              "
+            />
+
+            <input
+              type="time"
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
+              className="
+              w-full
+              bg-gray-50
+              border
+              border-gray-200
+              p-4
+              rounded-2xl
+              text-black
+              outline-none
+              focus:border-blue-500
+              focus:ring-4
+              focus:ring-blue-100
+              transition
+              "
+            />
+
+          </div>
 
           <textarea
+            name="message"
             placeholder="Project Requirement (Optional)"
             rows="4"
+            value={formData.message}
+            onChange={handleChange}
             className="
             w-full
+            bg-gray-50
             border
-            p-3
-            rounded-xl
+            border-gray-200
+            p-4
+            rounded-2xl
+            text-black
+            placeholder:text-gray-400
+            outline-none
+            focus:border-blue-500
+            focus:ring-4
+            focus:ring-blue-100
+            transition
             "
           />
 
@@ -121,14 +256,16 @@ export default function ScheduleCallModal({
             type="submit"
             className="
             w-full
-            bg-black
+            bg-blue-600
+            hover:bg-blue-700
             text-white
-            py-3
-            rounded-xl
-            mt-2
+            font-semibold
+            py-4
+            rounded-2xl
+            transition
             "
           >
-            Submit
+            Schedule Call
           </button>
 
         </form>
