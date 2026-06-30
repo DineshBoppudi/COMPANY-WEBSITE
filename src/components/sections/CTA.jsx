@@ -1,6 +1,11 @@
+import { useState } from "react";
+import ScheduleCallModal from "../ui/ScheduleCallModal";
 export default function CTA() {
+  const [showModal, setShowModal] = useState(false);
   return (
+    
     <section className="py-32">
+      
 
       <div className="max-w-6xl mx-auto px-8">
 
@@ -45,19 +50,26 @@ export default function CTA() {
             >
               Start a Project
             </button>
+            
 
             <button
-              className="
-              border
-              border-gray-600
-              px-8
-              py-4
-              rounded-full
-              "
-            >
-              Schedule Call
-            </button>
+  onClick={() => setShowModal(true)}
+  className="
+  bg-white
+  text-black
+  px-8
+  py-4
+  rounded-full
+  font-semibold
+  "
+>
+  Schedule a Call
+</button>
 
+<ScheduleCallModal
+  isOpen={showModal}
+  onClose={() => setShowModal(false)}
+/>
           </div>
 
         </div>
