@@ -67,7 +67,7 @@ export default function SuccessMessage({
             "
           >
             <p className="text-xs text-gray-500">
-              Confirmation will be sent to
+              Confirmation will be sent to your email in 2 minutes. If you don't see it, please check your spam folder.
             </p>
 
             <p className="text-blue-600 font-medium">
