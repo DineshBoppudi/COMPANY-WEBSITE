@@ -100,7 +100,7 @@ export default function Process() {
         <div
           className="
           mt-20
-          bg-white
+          bg-blue-100
           rounded-[40px]
           border
           border-gray-100
@@ -114,7 +114,7 @@ export default function Process() {
 
             <div
               className="
-              bg-gray-50
+              bg-blue-100
               p-12
               flex
               flex-col

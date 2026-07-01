@@ -10,7 +10,7 @@ export default function ServiceCard({
       p-8
       rounded-[30px]
       border
-      border-gray-100
+      border-blue-200
       hover:shadow-2xl
       hover:-translate-y-2
       transition-all

@@ -18,7 +18,7 @@ export default function Testimonials() {
 
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mt-16">
+        <div className="grid lg:grid-cols-3 gap-8 mt-16 bg-gray-300 p-8 rounded-3xl">
 
           {testimonials.map((item, index) => (
             <div
